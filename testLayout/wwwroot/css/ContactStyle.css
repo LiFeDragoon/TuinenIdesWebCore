@@ -1,0 +1,129 @@
+﻿/* Add your CSS styles here */
+body {
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	background-image: url("wwwroot/Images/flowers-276014.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
+.container {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 50px;
+	background-color: forestgreen;
+	border-radius: 10px;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+	opacity: 0;
+	animation: fade-in 1s forwards;
+}
+
+h2 {
+	font-size: 32px;
+	font-weight: 800;
+	color: #333;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+label {
+	font-size: 18px;
+	font-weight: 600;
+	color: #333;
+	margin-bottom: 10px;
+}
+
+.form-control {
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
+	color: #333;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+
+.text-danger {
+	color: red;
+}
+
+.btn-primaryOwn {
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 16px;
+	font-weight: 600;
+	color: white;
+	background-color: black;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+
+	.btn-primaryOwn:hover {
+		background-color: #222;
+		box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+	}
+
+	.btn-primaryOwn:focus {
+		outline: none;
+	}
+
+	.btn-primaryOwn:not(:disabled):not(.disabled):active {
+		background-color: #111;
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+	}
+
+
+.contact-section {
+	margin-top: 30px;
+	text-align: center;
+	opacity: 0.8;
+}
+
+	.contact-section h3 {
+		font-size: 24px;
+		font-weight: 600;
+		color: #333;
+		margin-bottom: 20px;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	}
+
+	.contact-section ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.contact-section li {
+		font-size: 16px;
+		color: #333;
+		margin-bottom: 10px;
+	}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+	transition: border-color 0.3s ease;
+}
+
+	.form-group input[type="text"]:focus,
+	.form-group input[type="email"]:focus,
+	.form-group textarea:focus {
+		border-color: #007bff;
+		box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+	}
+
+#bg-image {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	object-fit: cover;
+	z-index: -1;
+}

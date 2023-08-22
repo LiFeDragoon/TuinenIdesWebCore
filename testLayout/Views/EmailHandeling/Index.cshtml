@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Index"; // Sets the title for the page
+    Layout = "_Layout"; // Sets the layout for the page (replace with your layout's name)
+}
+
+<!-- Include the ContactStyle.css stylesheet -->
+<link rel="stylesheet" href="~/css/ContactStyle.css">
+
+<body>
+    <!-- Background image for the page -->
+    <img id="bg-image" src="~/Images/lawn-mower-384589.jpg" alt="Garden Image">
+
+    <!-- Main content container -->
+    <div class="container">
+        <h2>Contacteer vrijblijvend</h2>
+
+        <!-- Begin a form using Html.BeginForm with action "SubmitEmail" in the "EmailHandeling" controller -->
+        @using (Html.BeginForm("SubmitEmail", "EmailHandeling", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken() <!-- Anti-forgery token for security -->
+            <!-- Email input field -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                @Html.TextBox("email", null, new { @class = "form-control" }) <!-- TextBox for email input -->
+                @Html.ValidationMessage("email", "", new { @class = "text-danger" }) <!-- Validation message for email input -->
+            </div>
+
+            <!-- Message textarea -->
+            <div class="form-group">
+                <label for="message">Message:</label>
+                @Html.TextArea("message", null, new { @class = "form-control" }) <!-- TextArea for message input -->
+                @Html.ValidationMessage("message", "", new { @class = "text-danger" }) <!-- Validation message for message input -->
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primaryOwn">Stuur</button>
+        }
+
+        <!-- Contact information section -->
+        <div class="contact-section">
+            <h3>Contact Me</h3>
+            <ul>
+                <li>Email: tuinenides@gmail.com</li>
+                <li>Phone: +32479466083</li>
+                <li>Location: Ichtegem, België</li>
+                <li>BTW nummer: BE0799.204.279</li>
+                <li>--------------------------</li>
+                <li>Web Development by:</li>
+                <li>lieven.delameillieure</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // When the document is ready, set the opacity of the container to 1
+        $(document).ready(function () {
+            $(".container").css("opacity", "1");
+        });
+    </script>
+</body>

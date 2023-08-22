@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Index"; // Sets the title for the page
+    Layout = "_Layout"; // Sets the layout for the page (replace with your layout's name)
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Cookie Policy</title>
+    <!-- Include the site.css stylesheet with version appending -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <!-- Include the site.js script -->
+    <script src="~/js/site.js"></script>
+</head>
+<body style="background-color: grey;">
+    <!-- Main content container -->
+    <div class="container">
+        <!-- Heading for the Cookie Policy -->
+        <h1>Cookie Policy</h1>
+        <p>
+            This website uses cookies to enhance the user experience and provide certain functionality. By continuing to use this website, you consent to the use of cookies in accordance with this Cookie Policy.
+        </p>
+        <!-- Heading for "What are Cookies?" section -->
+        <h2>What are Cookies?</h2>
+        <p>
+            Cookies are small text files that are placed on your computer or mobile device by websites that you visit. They are widely used to make websites work more efficiently and provide a better browsing experience for the users.
+        </p>
+        <!-- Heading for "How We Use Cookies" section -->
+        <h2>How We Use Cookies</h2>
+        <p>
+            We use cookies to:
+        </p>
+        <!-- List of ways cookies are used -->
+        <ul>
+            <li>Remember your preferences and settings.</li>
+            <li>Provide personalized content and recommendations.</li>
+            <li>Analyze website traffic and usage.</li>
+            <li>Improve the website's performance and functionality.</li>
+        </ul>
+        <!-- Heading for "Managing Cookies" section -->
+        <h2>Managing Cookies</h2>
+        <p>
+            You can control and manage cookies in your browser settings. Please note that disabling or blocking certain cookies may affect the functionality of this website.
+        </p>
+        <!-- Heading for "Changes to this Cookie Policy" section -->
+        <h2>Changes to this Cookie Policy</h2>
+        <p>
+            We may update this Cookie Policy from time to time. Any changes will be posted on this page. We encourage you to review this Cookie Policy periodically for any updates or changes.
+        </p>
+        <!-- Heading for "Contact Us" section -->
+        <h2>Contact Us</h2>
+        <p>
+            If you have any questions or concerns about our use of cookies, please contact us.
+        </p>
+
+        <!-- Navbar with a link to the "Home" action in the "Home" controller -->
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link text-dark big-round-green-button" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+        </div>
+    </div>
+</body>
+</html>
+<!-- Include the site.js script with version appending -->
+<script src="~/js/site.js" asp-append-version="true"></script>

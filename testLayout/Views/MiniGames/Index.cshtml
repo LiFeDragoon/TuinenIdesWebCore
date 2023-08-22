@@ -1,0 +1,232 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snake Game</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-color: #333;
+            font-family: "Arial", sans-serif;
+        }
+
+        nav {
+            /* Add any necessary styles for your navigation bar here */
+        }
+
+        .game-container {
+            width: 450px; /* Adjust the width as needed */
+            height: 450px; /* Adjust the height as needed */
+            border: 1px solid #333;
+            margin-top: 5px; /* Add margin to create space below the navigation bar */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: darkseagreen;
+            float: left;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            overflow: hidden; /* Clear the float */
+        }
+
+        canvas {
+            display: block; /* Set the canvas to display as a block element */
+        }
+
+        .image-container {
+            float: right;
+            width: calc(50% - 10px); /* Adjust the width as needed */
+            margin-left: 20px; /* Add space between the image and game container */
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+            .image-container img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+        .column {
+            background-color: #66cc99;
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 10px;
+            color: #FF0000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+            .column h3 {
+                margin: 0;
+                font-size: 24px;
+            }
+
+            .column p {
+                margin-top: 10px;
+                font-style: italic;
+                color: #555;
+            }
+
+            .column ul {
+                list-style: none;
+                padding-left: 0;
+                margin-top: 20px;
+            }
+
+            .column li {
+                margin-bottom: 10px;
+                font-size: 16px;
+                color: #333;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="~/Images/idesFunny-modified.png" alt="Image">
+        </div>
+        <div class="game-container">
+            <canvas width="450" height="450" id="game"></canvas>
+        </div>
+    </div>
+    <div class="column">
+        <h3>Snake</h3>
+        <p>regels</p>
+        <ul>
+            <li>Als je de rode appel niet kunt pakken, probeer het vanuit een andere richting.</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+
+    <script>
+        // Get the canvas element and its context
+        var canvas = document.getElementById('game');
+        var context = canvas.getContext('2d');
+
+        // Set up initial game variables
+        var grid = 16;
+        var count = 0;
+
+        var snake = {
+            x: 160,
+            y: 160,
+            dx: grid,
+            dy: 0,
+            cells: [],
+            maxCells: 4
+        };
+        var apple = {
+            x: 320,
+            y: 320
+        };
+
+        // Function to generate random integers within a given range
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // The game loop function that runs continuously
+        function loop() {
+            requestAnimationFrame(loop);
+
+            if (++count < 4) {
+                return;
+            }
+
+            count = 0;
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            snake.x += snake.dx;
+            snake.y += snake.dy;
+
+            // Wrap snake around the canvas if it goes out of bounds
+            if (snake.x < 0) {
+                snake.x = canvas.width - grid;
+            }
+            else if (snake.x >= canvas.width) {
+                snake.x = 0;
+            }
+
+            if (snake.y < 0) {
+                snake.y = canvas.height - grid;
+            }
+            else if (snake.y >= canvas.height) {
+                snake.y = 0;
+            }
+
+            snake.cells.unshift({ x: snake.x, y: snake.y });
+
+            // Remove excess snake cells if it exceeds the maximum length
+            if (snake.cells.length > snake.maxCells) {
+                snake.cells.pop();
+            }
+
+            // Draw the apple on the canvas
+            context.fillStyle = 'red';
+            context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
+
+            // Draw the snake on the canvas
+            context.fillStyle = 'green';
+            snake.cells.forEach(function (cell, index) {
+                context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
+
+                // Check if the snake has collided with the apple
+                if (snake.x === apple.x && snake.y === apple.y) {
+                    snake.maxCells++;
+                    apple.x = getRandomInt(0, 25) * grid;
+                    apple.y = getRandomInt(0, 25) * grid;
+                }
+
+                // Check if the snake has collided with itself
+                for (var i = index + 1; i < snake.cells.length; i++) {
+                    if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+                        // Reset the snake's position and length
+                        snake.x = 160;
+                        snake.y = 160;
+                        snake.cells = [];
+                        snake.maxCells = 4;
+                        snake.dx = grid;
+                        snake.dy = 0;
+
+                        // Generate a new position for the apple
+                        apple.x = getRandomInt(0, 25) * grid;
+                        apple.y = getRandomInt(0, 25) * grid;
+                    }
+                }
+            });
+        }
+
+        // Event listener for keyboard input to control the snake's movement
+        document.addEventListener('keydown', function (e) {
+            if (e.which === 37 && snake.dx === 0) {
+                snake.dx = -grid;
+                snake.dy = 0;
+            }
+            else if (e.which === 38 && snake.dy === 0) {
+                snake.dy = -grid;
+                snake.dx = 0;
+            }
+            else if (e.which === 39 && snake.dx === 0) {
+                snake.dx = grid;
+                snake.dy = 0;
+            }
+            else if (e.which === 40 && snake.dy === 0) {
+                snake.dy = grid;
+                snake.dx = 0;
+            }
+        });
+
+        // Start the game loop
+        requestAnimationFrame(loop);
+    </script>
+
+</html>

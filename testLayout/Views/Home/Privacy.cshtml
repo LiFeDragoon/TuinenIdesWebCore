@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <!-- Include the Lightbox.css stylesheet from the specified path -->
+    <link href="~/Lightbox/css/lightbox.css" rel="stylesheet" />
+    <!-- Include the Lightbox2.css stylesheet from the specified CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-YxdFfOuGpgxUtKz+9J7rl/J2T/3dRme5W3+HeOpg03kf8F4Z9I8rG4JjGfRtYZAIgmZfxSSat+sA8frhmV7U6g==" crossorigin="anonymous" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <!-- Link to the Google Fonts stylesheet -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <!-- Link to the Bootstrap CSS from the specified CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Inline CSS styles -->
+    <style>
+        /* Voeg hier je CSS-stijlen toe */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-banner {
+            padding: 50px;
+            text-align: center;
+            /* Remove the 'position: fixed;' style */
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .caption {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: 800;
+            color: ghostwhite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .column {
+            text-align: center;
+            padding: 20px;
+            background-color: forestgreen;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+            border-radius: 30px;
+            transition: transform 0.3s ease;
+        }
+
+            .column:hover {
+                transform: translateY(-10px);
+            }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .work-pictures img {
+            width: 100%;
+            max-width: 100px;
+            height: auto;
+            border-radius: 7px;
+            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+        }
+
+        ul {
+            text-align: left;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+    </style>
+    <title>Over mij</title>
+</head>
+
+<body>
+    <!-- Background image for the entire body -->
+    <img id="bg-image" src="~/Images/flowers-276014.jpg" alt="Afbeelding van de tuin">
+    <!-- ***** Hoofdbanner Gebied Start ***** -->
+    <section class="section main-banner" id="top" data-section="section1">
+        <!-- Main content container -->
+        <div class="container">
+            <!-- Caption content -->
+            <div class="caption">
+                <h2>Over mij</h2>
+                <p>Leer mij beter kennen</p>
+            </div>
+            <!-- Row for columns -->
+            <div class="row">
+                <!-- Column 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="column">
+                        <h3>Achtergrond</h3>
+                        <p>Ik ben een gepassioneerde tuinaannemer met oog voor detail. Met de nodige werkervaring heb ik talloze buitenruimtes omgetoverd tot de individuele wensen en noden van elke klant.</p>
+                    </div>
+                </div>
+                <!-- Column 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="column">
+                        <h3>Werkfoto's</h3>
+                        <p>Bekijk enkele van mijn vorige projecten:</p>
+                        <div class="work-pictures">
+                            <!-- Links to work images with Lightbox effect -->
+                            <a href="~/Images/Afbeelding van WhatsApp op 2023-07-01 om 07.40.35.jpg" data-lightbox="roadtrip">
+                                <img src="~/Images/Afbeelding van WhatsApp op 2023-07-01 om 07.40.35.jpg" alt="Werk Afbeelding 2">
+                            </a>
+                            <a href="~/Images/Afbeelding van WhatsApp op 2023-07-01 om 07.40.26.jpg" data-lightbox="roadtrip">
+                                <img src="~/Images/Afbeelding van WhatsApp op 2023-07-01 om 07.40.26.jpg" alt="Werk Afbeelding 3">
+                            </a>
+                            <!-- Add more similar links for other images -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Column 3 -->
+                <div class="col-lg-4">
+                    <div class="column">
+                        <h3>Waarom voor mij kiezen?</h3>
+                        <!-- Unordered list of reasons -->
+                        <ul>
+                            <li>Gepersonaliseerd advies, afgestemd op jouw specifieke voorkeuren en behoeften.</li>
+                            <li>Ernaar streven om resultaten te leveren die aan uw verwachtingen voldoen.</li>
+                            <li>Er wordt nauwgezet aandacht besteed aan details.</li>
+                            <li>Het aanbieden van diensten zoals landschapsaanleg, tuin- vijveronderhoud en meer.</li>
+                            <li>Ik geef prioriteit aan klanttevredenheid en streef naar het opbouwen van langdurige werk relaties.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Include jQuery and Bootstrap JavaScript libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Include the Lightbox-plus-jquery.js script from the specified path -->
+    <script src="~/Lightbox/js/lightbox-plus-jquery.js"></script>
+</body>
+
+</html>

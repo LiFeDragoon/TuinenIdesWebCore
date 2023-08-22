@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Fancy Email Response</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: darkgrey;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: green;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #333333;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            color: #555555;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .btn-primaryOwn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            background-color: black;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+        }
+
+            .btn-primaryOwn:hover {
+                background-color: white;
+                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+            }
+
+            .btn-primaryOwn:focus {
+                outline: none;
+            }
+
+            .btn-primaryOwn:not(:disabled):not(.disabled):active {
+                background-color: white;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            }
+
+        #bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <img id="bg-image" src="~/Images/flowers-276014.jpg" alt="Afbeelding van de tuin">
+    <!-- Main content container -->
+    <div class="container">
+        <h2>Bedankt voor de email!!</h2>
+        <p>Ik waardeer jouw bericht en zal spoedig een antwoord sturen!!</p>
+        <!-- Link to go back to the "Index" action in the "Home" controller -->
+        <a href="@Url.Action("Index", "Home")" class="btn btn-primaryOwn">Ga terug</a>
+    </div>
+</body>
+</html>
