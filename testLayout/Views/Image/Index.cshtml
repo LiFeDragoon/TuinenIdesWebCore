@@ -1,0 +1,57 @@
+﻿@model List<TuinenIdes.be.Models.ImageModel>
+
+@{
+    ViewData["Title"] = "Image Gallery";
+	
+
+}
+
+<h2>Image Gallery</h2>
+
+@if (!ViewBag.IsAuthenticated)
+{
+    <!-- Display login button -->
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <a href="@Url.Action("Login", "Image")" class="btn btn-primary">Login</a>
+        </div>
+    </div>
+}
+<div class="row">
+	@foreach (var image in Model)
+	{
+		<div class="col-md-3">
+			<div class="card mb-4 box-shadow">
+				<img class="card-img-top" src="@Url.Content(image.ImagePath)" alt="@image.FileName">
+				<div class="card-body">
+					<p class="card-text">@image.ImageDescription</p>
+					@if (ViewBag.IsAuthenticated)
+					{
+						<!-- Display delete button -->
+						<form asp-controller="Image" asp-action="Delete" method="post">
+							<input type="hidden" name="fileName" value="@image.FileName" />
+							<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+						</form>
+					}
+				</div>
+			</div>
+		</div>
+	}
+</div>
+
+@if (ViewBag.IsAuthenticated)
+{
+    <!-- Display logout button -->
+    <form asp-controller="Image" asp-action="Logout" method="post">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+
+    <!-- Display create button -->
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-4">
+            <a href="@Url.Action("Create", "Image")" class="btn btn-success btn-block">Create</a>
+        </div>
+    </div>
+}
+
+

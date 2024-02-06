@@ -1,0 +1,28 @@
+﻿@model IFormFile
+
+<form asp-controller="Image" asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="file">Select Image:</label>
+        <input type="file" name="file" id="fileInput" class="form-control-file" accept="image/*" required />
+    </div>
+    <div class="form-group">
+        <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 100%;" />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+
+@section Scripts {
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function (event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.getElementById('imagePreview').src = e.target.result;
+                document.getElementById('imagePreview').style.display = 'block';
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+}

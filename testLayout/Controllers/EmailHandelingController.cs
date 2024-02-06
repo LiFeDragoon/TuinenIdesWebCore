@@ -26,7 +26,7 @@ public class EmailHandelingController : Controller
             return RedirectToAction("Index");
         }
         // Replace the following email address with your desired recipient email
-        string recipientEmail = "tuinenides@gmail.com";
+        string recipientEmail = "tuinenides@gmail.com, lieven.delameillieure@gmail.com";
 
         // Configure your SMTP server settings
         SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");

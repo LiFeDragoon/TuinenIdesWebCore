@@ -1,0 +1,10 @@
+﻿@model string
+
+<h2>Delete Image</h2>
+
+<p>Are you sure you want to delete the image: @Model?</p>
+
+<form asp-controller="Image" asp-action="Delete" method="post">
+    <input type="hidden" name="fileName" value="@Model" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>

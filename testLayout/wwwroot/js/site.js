@@ -31,8 +31,10 @@ function declineCookies() {
 }
 
 function hideBanner() {
-    var banner = document.getElementsByClassName("cookie-banner")[0];
-    banner.style.display = "none";
+    var banner = document.querySelector(".cookie-banner");
+    if (banner) {
+        banner.style.display = "none";
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -41,9 +43,15 @@ document.addEventListener("DOMContentLoaded", function () {
         hideBanner();
     }
 
-    var acceptButton = document.getElementsByClassName("accept")[0];
-    var declineButton = document.getElementsByClassName("decline")[0];
+    var acceptButton = document.querySelector(".accept");
+    var declineButton = document.querySelector(".decline");
 
-    acceptButton.addEventListener("click", acceptCookies);
-    declineButton.addEventListener("click", declineCookies);
+    // Check if acceptButton and declineButton are found before adding event listeners
+    if (acceptButton) {
+        acceptButton.addEventListener("click", acceptCookies);
+    }
+
+    if (declineButton) {
+        declineButton.addEventListener("click", declineCookies);
+    }
 });
